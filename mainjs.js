@@ -113,7 +113,7 @@ moto.prototype = {
         this.fatdiv.style.transform = 'translateZ(' + -clientH / 2 + 'px)';
         this.fatdiv.parentNode.style.cssText = 'perspective:' + clientH * 2 + 'px';
         //原始字号
-        doc.body.style.fontSize = clientH * 0.02 + 'px';
+        //doc.body.style.fontSize = clientH * 0.02 + 'px';
         doc.body.style.background = 'url("'+backback[Math.abs(this.kakudo/90)%backback.length]+'") no-repeat center';
         doc.body.style.backgroundSize = 'cover';
         //
