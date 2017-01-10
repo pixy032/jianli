@@ -85,7 +85,6 @@ moto.prototype = {
             this.imgTemp[i].onload = function () {
                 this0.loadNum++;
                 this0.loadNum100 = 100/this0.imgTemp.length*this0.loadNum;
-                this0.loadSpan.style.fontSize = '16px';
                 this0.loadSpan.innerHTML = 'Loading... '+parseInt(this0.loadNum100)+'%';
                 this0.loadDiv.style.width = clientW * this0.loadNum100*0.01 + 'px';
                 if (this0.loadNum == this0.arrImg.length)
