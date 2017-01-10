@@ -1,7 +1,6 @@
 window.onload = function () {
     var oDiv3d = doc.getElementById('mawari');
     var x = new moto(getClass(oDiv3d,'main'),getClass(doc,'button'));
-    x.init();
     window.onresize = function () {
         clientH = doc.documentElement.clientHeight || doc.body.offsetHeight;//重新获取可视区高度
         clientW = doc.documentElement.clientWidth || doc.body.clientWidth;
@@ -91,6 +90,7 @@ moto.prototype = {
                 this0.loadDiv.style.width = clientW * this0.loadNum100*0.01 + 'px';
                 if (this0.loadNum == this0.arrImg.length)
                 {
+                    this0.init();
                     this0.loadTime = setInterval(function () {
                         this0.loadSetInterval();
                     },30)
