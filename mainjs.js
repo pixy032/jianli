@@ -660,8 +660,7 @@ moto.prototype = {
             }
         };
         this.player.onwaiting = function () {
-            alert(111);
-            //this0.fat_play.style.background = 'url("./img/load.gif") no-repeat center black;';
+            this0.fat_play.style.background = 'url("./img/load.gif") no-repeat center black;';
         };
         this.player.onended = function () {
             this0.p5_play.style.background = 'url("./img/p1.png") no-repeat center';
