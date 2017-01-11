@@ -50,6 +50,11 @@ moto.prototype = {
         this.label1 = getClass(this.adiv3d[0],'labelMain')[0];
         this.label1_Li = getClass(this.label1,'labelPage');
         this.toper = getId(doc,'toper');
+        for (var i=0; i<this.label0_Li.length-1; i++)
+        {
+            this.label0_Li[i].cName = this.label0_Li[i].className;
+        }
+        this.label0_Li[0].className = 'firstLab actLab point';
         this.p0_num = 0;
         this.navNum0 = 0;
         this.tabNum = 0;
@@ -105,7 +110,6 @@ moto.prototype = {
         }
         this.loadOpacity -= 0.1;
         this.loadAll.style.opacity = this.loadOpacity;
-        console.log(this.loadOpacity)
     },
     "init": function () {
         //父级以及舞台
@@ -243,7 +247,6 @@ moto.prototype = {
         },5000);
         for (var i=0; i<this.label0_Li.length-1; i++)
         {
-            this.label0_Li[i].cName = this.label0_Li[i].className;
             this.label0_Li[i].index = i;
             this0.label0_Li[i].onclick = function () {
                 this0.label0_Div[this0.labNum0].className = '';
@@ -255,7 +258,6 @@ moto.prototype = {
                 this0.labNum0 = this.index;
             }
         }
-        this.label0_Li[0].className = 'firstLab actLab point';
         this.toperTop = clientH - this.toper.offsetHeight;
         this.toper.style.top = this.toperTop + this.adiv3d[0].scrollTop + 'px';
         if (navigator.userAgent.indexOf("Firefox")>0)
@@ -656,6 +658,9 @@ moto.prototype = {
                 this0.p5_play.style.background = 'url("./img/p1.png") no-repeat center';
                 this0.p5_play.style.backgroundSize = 'contain';
             }
+        };
+        this.player.onwaiting = function () {
+            this0.fat_play.style.background = 'url("./img/load.gif") no-repeat center black;';
         };
         this.player.onended = function () {
             this0.p5_play.style.background = 'url("./img/p1.png") no-repeat center';
