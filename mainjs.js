@@ -26,7 +26,8 @@ moto.prototype = {
         this.p3_fat = this.p3_butai.children[0];
         this.p3_img = getClass(this.adiv3d[3],'img3d');
         this.fat_play = getId(doc,'p3_3');
-        this.player =this.fat_play.children[0];
+        this.play_Load = this.fat_play.children[0];
+        this.player =this.fat_play.children[1];
         this.player.volume = 1;
         this.p5_oto100W = getId(doc,'oto100');
         this.p5_otoMove = this.p5_oto100W.children[0];
@@ -660,7 +661,7 @@ moto.prototype = {
             }
         };
         this.player.onwaiting = function () {
-            this0.fat_play.style.background = 'url("./img/load.gif") no-repeat center black;';
+            this0.play_Load.style.display = 'block';
         };
         this.player.onended = function () {
             this0.p5_play.style.background = 'url("./img/p1.png") no-repeat center';

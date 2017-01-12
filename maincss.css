@@ -84,7 +84,8 @@ border-radius: 50%;}
 .p5class { width: 10%; height: 10%; position: absolute; top: 45%; left: 45%;}
 .p5class:hover {cursor: pointer;}
 
-#p3_3 { width: 120%; height: 80%; position: absolute; left: -10%; top: -200%; background:url("./img/ogaku.png") no-repeat center black;overflow: hidden;}
+#p3_3 { width: 120%; height: 80%; position: absolute; left: -10%; top: -200%; background:url("./img/ogaku.png") no-repeat 90% 80% black;overflow: hidden;}
+#p3_3 .loadPlay { position: absolute; z-index:5; display: none; background: url("./img/load.gif") no-repeat center transparent; background-size:contain; width: 16%; height: 16%; left: 42%; top: 42%;}  /*直接用img会出错*/
 #p3_3 video { position: absolute; left: 0; top: 0;}
 #con { width: 100%; height: 15%; position: absolute; left: 0;bottom: 0; background-color: #303235;}
 #play_move {width: 100%; height: 4px; position: absolute; background-color: #666666;}
