@@ -573,6 +573,7 @@ moto.prototype = {
         this.playOpen = getId(doc,'open');
         this.p5_playMoveFat = getId(doc,'play_move');
         this.p5_playMove = this.p5_playMoveFat.children[0];
+        this.p5_playMove1 = this.p5_playMoveFat.children[1];
         this.p5_play = getId(doc,'play');
         this.p5_oto = getId(doc,'oto');
         this.p5_replay = getId(doc,'replay');
@@ -665,6 +666,10 @@ moto.prototype = {
         };
         this.player.oncanplay = function () {
             this0.play_Load.style.display = 'none';
+            console.log(this0.player.buffered)
+            console.log(this0.player.buffered.length)
+            console.log(this0.player.buffered.start(this0.player.buffered.length-1))
+            console.log(this0.player.buffered.end(this0.player.buffered.length-1))
         };
         this.player.onended = function () {
             this0.p5_play.style.background = 'url("./img/p1.png") no-repeat center';
@@ -1390,6 +1395,10 @@ moto.prototype = {
         this.player.play();
         this.player.oncanplay = function ()
         {
+            console.log(this0.player.buffered)
+            console.log(this0.player.buffered.length)
+            console.log(this0.player.buffered.start(this0.player.buffered.length-1))
+            console.log(this0.player.buffered.end(this0.player.buffered.length-1))
             this0.play_Load.style.display = 'none';
             this0.playTimeDura();//hannoujikan
             this0.player_timer = setInterval(function () {
