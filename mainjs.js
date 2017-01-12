@@ -663,6 +663,9 @@ moto.prototype = {
         this.player.onwaiting = function () {
             this0.play_Load.style.display = 'block';
         };
+        this.player.oncanplaythrough = function () {
+            this0.play_Load.style.display = 'none';
+        };
         this.player.onended = function () {
             this0.p5_play.style.background = 'url("./img/p1.png") no-repeat center';
             this0.p5_play.style.backgroundSize = 'contain';
@@ -1387,6 +1390,7 @@ moto.prototype = {
         this.player.play();
         this.player.oncanplay = function ()
         {
+
             this0.playTimeDura();//hannoujikan
             this0.player_timer = setInterval(function () {
                 this0.playerTTT();
