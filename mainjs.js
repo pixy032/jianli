@@ -666,8 +666,6 @@ moto.prototype = {
         };
         this.player.oncanplay = function () {
             this0.play_Load.style.display = 'none';
-            console.log(this0.player.buffered)
-            console.log(this0.player.buffered.length)
             console.log(this0.player.buffered.start(this0.player.buffered.length-1))
             console.log(this0.player.buffered.end(this0.player.buffered.length-1))
         };
@@ -746,6 +744,7 @@ moto.prototype = {
                     this0.p5_playMoveX = 0;
                 }
                 this0.p5_playMove.style.width = this0.p5_playMoveX + 'px';
+                this0.p5_playMove1.style.width = this0.p5_playMoveX + 'px';
                 this0.p5_playMoveBeilv = this0.p5_playMove.offsetWidth/this0.p5_playMoveFat.offsetWidth;
                 this0.player.currentTime = this0.p5_playMoveBeilv*this0.player.duration;
                 this0.player.play();
@@ -759,6 +758,7 @@ moto.prototype = {
             };
         };
         this.p5_playMove.style.width = this.p5_playMoveBeilv*this.p5_playMoveFat.offsetWidth + 'px';
+        this.p5_playMove1.style.width = this.p5_playMoveBeilv1*this.p5_playMoveFat.offsetWidth + 'px';
         //
         this.arrCheck = getClass(doc,'check');
         this.p3_close_x = getClass(this.adiv3d[3],'close');
@@ -1271,7 +1271,9 @@ moto.prototype = {
         {
             clearInterval(this.player_timer);
             this.p5_playMoveBeilv = 1;
+            this.p5_playMoveBeilv1 = 1;
             this.p5_playMove.style.width = this.p5_playMoveBeilv*this.p5_playMoveFat.offsetWidth + 'px';
+            this.p5_playMove1.style.width = this.p5_playMoveBeilv1*this.p5_playMoveFat.offsetWidth + 'px';
             this.playTimeC.children[0].innerHTML = this.playTimeAllH + this.playTimeAllM + ':' + this.playTimeAllS;
             this.con.style.bottom = 0;
             this.con.style.cursor = 'default';
@@ -1303,7 +1305,9 @@ moto.prototype = {
             }
             this.playTimeC.children[0].innerHTML = this.playTimeH + this.playTimeM + ':' + this.playTimeS;
             this.p5_playMoveBeilv = this.playTime/this.playTimeAll;
+            this.p5_playMoveBeilv1 = this.player.buffered.end(this.player.buffered.length-1)/this.playTimeAll;
             this.p5_playMove.style.width = this.p5_playMoveBeilv*this.p5_playMoveFat.offsetWidth + 'px';
+            this.p5_playMove1.style.width = this.p5_playMoveBeilv1*this.p5_playMoveFat.offsetWidth + 'px';
             //html5误差有
         }
     },
@@ -1388,6 +1392,7 @@ moto.prototype = {
     "playLoad" : function (index) {
         var this0 = this;
         this.p5_playMove.style.width = 0;
+        this.p5_playMove1.style.width = 0;
         this.p5_play.style.background = 'url("./img/p2.png") no-repeat center';
         this.p5_play.style.backgroundSize = 'contain';
         this.player.src = mSrc[index];
@@ -1395,10 +1400,6 @@ moto.prototype = {
         this.player.play();
         this.player.oncanplay = function ()
         {
-            console.log(this0.player.buffered)
-            console.log(this0.player.buffered.length)
-            console.log(this0.player.buffered.start(this0.player.buffered.length-1))
-            console.log(this0.player.buffered.end(this0.player.buffered.length-1))
             this0.play_Load.style.display = 'none';
             this0.playTimeDura();//hannoujikan
             this0.player_timer = setInterval(function () {
