@@ -663,7 +663,7 @@ moto.prototype = {
         this.player.onwaiting = function () {
             this0.play_Load.style.display = 'block';
         };
-        this.player.oncanplaythrough = function () {
+        this.player.oncanplay= function () {
             this0.play_Load.style.display = 'none';
         };
         this.player.onended = function () {
