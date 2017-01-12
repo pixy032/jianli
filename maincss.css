@@ -32,7 +32,7 @@ body { overflow: hidden;}
 .dborder { position: absolute; border: 1px white solid;}
 
 #timer { margin-left: auto; margin-right: auto;}
-#timer .right { float: right; color: white;}/*有bug应该用定位计算位置不过简历一次浮动不用也不好...*/
+#timer .right { float: right; color: white;}
 
 .right div:nth-child(1) {text-align: center; width: 100%; height: 70%;}
 .right div:nth-child(2) {text-align: center; width: 100%; height: 30%;}

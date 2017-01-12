@@ -661,11 +661,9 @@ moto.prototype = {
             }
         };
         this.player.onwaiting = function () {
-            console.log(1);
             this0.play_Load.style.display = 'block';
         };
         this.player.oncanplay = function () {
-            console.log(2);
             this0.play_Load.style.display = 'none';
         };
         this.player.onended = function () {
