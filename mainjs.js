@@ -1,7 +1,7 @@
-window.onload = function () {
+win.onload = function () {
     var oDiv3d = doc.getElementById('mawari');
     var x = new moto(getClass(oDiv3d,'main'),getClass(doc,'button'));
-    window.onresize = function () {
+    win.onresize = function () {
         clientH = doc.documentElement.clientHeight || doc.body.offsetHeight;//重新获取可视区高度
         clientW = doc.documentElement.clientWidth || doc.body.clientWidth;
         x.init();
