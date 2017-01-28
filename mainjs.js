@@ -1323,7 +1323,14 @@ moto.prototype = {
             }
             this.playTimeC.children[0].innerHTML = this.playTimeH + this.playTimeM + ':' + this.playTimeS;
             this.p5_playMoveBeilv = this.playTime/this.playTimeAll;
-            this.p5_playMoveBeilv1 = this.player.buffered.end(this.player.buffered.length-1)/this.playTimeAll;
+            if(!this.player.buffered.end)
+            {
+                this.p5_playMoveBeilv1 = 0;
+            }
+            else
+            {
+                this.p5_playMoveBeilv1 = this.player.buffered.end(this.player.buffered.length-1)/this.playTimeAll;
+            }
             this.p5_playMove.style.width = this.p5_playMoveBeilv*this.p5_playMoveFat.offsetWidth + 'px';
             this.p5_playMove1.style.width = this.p5_playMoveBeilv1*this.p5_playMoveFat.offsetWidth + 'px';
             //html5误差有
