@@ -1,12 +1,13 @@
-win.onload = function () {
+doc.addEventListener("DOMContentLoaded",function () {
     var oDiv3d = doc.getElementById('mawari');
     var x = new moto(getClass(oDiv3d,'main'),getClass(doc,'button'));
+    x.init();
     win.onresize = function () {
         clientH = doc.documentElement.clientHeight || doc.body.offsetHeight;//重新获取可视区高度
         clientW = doc.documentElement.clientWidth || doc.body.clientWidth;
         x.init();
     };
-};
+},false);
 function moto(obj,but) {
     this.adiv3d = obj;
     this.abut = but;
@@ -65,7 +66,7 @@ moto.prototype = {
         this.tabOnOff = true;
 
         this.p5_otoMove.style.left = this.p5_oto100W.clientWidth - this.p5_otoMove.offsetWidth + 'px';
-        
+
         this.loadAll = getId(doc,'load');
         this.loadOpacity = 1;
         this.loadSpan = this.loadAll.children[0];
@@ -583,7 +584,7 @@ moto.prototype = {
         this.player.height = this.fat_play.offsetHeight;
         this.p5_otoMove.style.left = (this.p5_oto100W.clientWidth - this.p5_otoMove.offsetWidth) * this.player.volume+ 'px';//音量
         //
-        this.playerTTT();
+
         this.playerBenRi();
         this.player.oncontextmenu = function () {
             return false;
@@ -665,9 +666,25 @@ moto.prototype = {
             this0.play_Load.style.display = 'block';
         };
         this.player.oncanplay = function () {
+            this0.playTimeDura();
+            this0.playerTTT();
+            if(this0.p5_playMoveBeilv)
+            {
+                this0.p5_playMove.style.width = this0.p5_playMoveBeilv*this0.p5_playMoveFat.offsetWidth + 'px';
+            }
+            else
+            {
+                this0.p5_playMove.style.width = 0;
+            }
+            if(this0.p5_playMoveBeilv1)
+            {
+                this0.p5_playMove1.style.width = this0.p5_playMoveBeilv1*this0.p5_playMoveFat.offsetWidth + 'px';
+            }
+            else
+            {
+                this0.p5_playMove1.style.width = 0;
+            }
             this0.play_Load.style.display = 'none';
-            console.log(this0.player.buffered.start(this0.player.buffered.length-1))
-            console.log(this0.player.buffered.end(this0.player.buffered.length-1))
         };
         this.player.onended = function () {
             this0.p5_play.style.background = 'url("./img/p1.png") no-repeat center';
@@ -757,8 +774,6 @@ moto.prototype = {
                 doc.onmouseup = null;
             };
         };
-        this.p5_playMove.style.width = this.p5_playMoveBeilv*this.p5_playMoveFat.offsetWidth + 'px';
-        this.p5_playMove1.style.width = this.p5_playMoveBeilv1*this.p5_playMoveFat.offsetWidth + 'px';
         //
         this.arrCheck = getClass(doc,'check');
         this.p3_close_x = getClass(this.adiv3d[3],'close');
@@ -810,7 +825,10 @@ moto.prototype = {
             this0.fat_play.style.zIndex = this0.allnum;
         };
         //
-        this0.p3_3dimg();
+        if (this.p3_butai.style.display == 'block')
+        {
+            this.p3_3dimg(30,this.tarnsZ);
+        }
         this.p3elements[2].ondblclick = function () {
             clearInterval(this0.p3_3dimg_timer);
             clearInterval(this0.up_timer);
@@ -821,7 +839,7 @@ moto.prototype = {
             this0.p3_kasaY = 0;
             this0.moveClientYre = 0;
             this0.moveClientXre = 0;
-            this0.p3_3dimg();
+            this0.p3_3dimg(0,0);
             this0.p3_3dimgKai();
         };
         this.p3_butai.onmousedown = function (ev) {
@@ -1164,16 +1182,16 @@ moto.prototype = {
     "change": function () {
         this.parentNode.children[2].innerHTML = '' + this.value + '';
     },
-    "p3_3dimg": function () {
+    "p3_3dimg": function (a,b) {
+        this.tarnsZ = clientH*0.4/2/Math.tan(30*Math.PI/180)*2*1.2;
         for (var i=0; i<this.p3_img.length; i++)
         {
             this.p3_img[i].style.width = clientH*0.4 +'px';
             this.p3_img[i].style.height = clientH*0.4*0.7 +'px';
             this.p3_img[i].style.left = (this.p3_fat.clientWidth - this.p3_img[0].offsetWidth)/2+'px';
             this.p3_img[i].style.top = (this.p3_fat.clientHeight - this.p3_img[0].offsetHeight)/2+'px';
-            this.p3_img[i].style.transform = 'rotateY('+0+'deg) translateZ('+0+'px)';
+            this.p3_img[i].style.transform = 'rotateY('+i*a+'deg) translateZ('+b+'px)';
         }
-        this.tarnsZ = (this.p3_img[0].offsetWidth/2)/Math.tan(30*Math.PI/180)*2*1.2;
         this.p3_fat.style.transformStyle = 'preserve-3d';
         this.p3_fat.style.transform = 'rotateX('+ -10 +'deg)';
         this.p3_butai.style.perspective = this.tarnsZ*4 + 'px';
