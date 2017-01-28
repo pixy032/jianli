@@ -1323,7 +1323,7 @@ moto.prototype = {
             }
             this.playTimeC.children[0].innerHTML = this.playTimeH + this.playTimeM + ':' + this.playTimeS;
             this.p5_playMoveBeilv = this.playTime/this.playTimeAll;
-            if(!this.player.buffered.end)
+            if(!this.player.buffered.length)
             {
                 this.p5_playMoveBeilv1 = 0;
             }
