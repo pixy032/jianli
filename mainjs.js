@@ -685,6 +685,32 @@ moto.prototype = {
                 this0.p5_playMove1.style.width = 0;
             }
             this0.play_Load.style.display = 'none';
+            this0.p5_playMoveFat.onmousedown = function () {
+                doc.onmouseup = function (ev) {
+                    this0.playEv = ev || window.event;
+                    this0.p5_playMoveX = this0.playEv.clientX - this0.p5_kyori0;
+                    if (this0.p5_playMoveX > this0.p5_playMoveFat.offsetWidth-this0.p5_playMoveFat.offsetWidth*0.01)
+                    {
+                        this0.p5_playMoveX = this0.p5_playMoveFat.offsetWidth;
+                    }
+                    else if (this0.p5_playMoveX < this0.p5_playMoveFat.offsetWidth*0.01)
+                    {
+                        this0.p5_playMoveX = 0;
+                    }
+                    this0.p5_playMove.style.width = this0.p5_playMoveX + 'px';
+                    this0.p5_playMove1.style.width = this0.p5_playMoveX + 'px';
+                    this0.p5_playMoveBeilv = this0.p5_playMove.offsetWidth/this0.p5_playMoveFat.offsetWidth;
+                    this0.player.currentTime = this0.p5_playMoveBeilv*this0.player.duration;
+                    this0.player.play();
+                    this0.p5_play.style.background = 'url("./img/p2.png") no-repeat center';
+                    this0.p5_play.style.backgroundSize = 'contain';
+                    clearInterval(this0.player_timer);
+                    this0.player_timer = setInterval(function () {
+                        this0.playerTTT();
+                    },1000);
+                    doc.onmouseup = null;
+                };
+            };
         };
         this.player.onended = function () {
             this0.p5_play.style.background = 'url("./img/p1.png") no-repeat center';
@@ -748,32 +774,6 @@ moto.prototype = {
             this0.p5_otoMove.style.left = this0.p5_oto100W_XY - this0.p5_otoMove.offsetWidth/2 + 'px';
             this0.player.volume = this0.p5_otoMove.offsetLeft / (this0.p5_oto100W.clientWidth - this0.p5_otoMove.offsetWidth);
         };//音量
-        this.p5_playMoveFat.onmousedown = function () {
-            doc.onmouseup = function (ev) {
-                this0.playEv = ev || window.event;
-                this0.p5_playMoveX = this0.playEv.clientX - this0.p5_kyori0;
-                if (this0.p5_playMoveX > this0.p5_playMoveFat.offsetWidth-this0.p5_playMoveFat.offsetWidth*0.01)
-                {
-                    this0.p5_playMoveX = this0.p5_playMoveFat.offsetWidth;
-                }
-                else if (this0.p5_playMoveX < this0.p5_playMoveFat.offsetWidth*0.01)
-                {
-                    this0.p5_playMoveX = 0;
-                }
-                this0.p5_playMove.style.width = this0.p5_playMoveX + 'px';
-                this0.p5_playMove1.style.width = this0.p5_playMoveX + 'px';
-                this0.p5_playMoveBeilv = this0.p5_playMove.offsetWidth/this0.p5_playMoveFat.offsetWidth;
-                this0.player.currentTime = this0.p5_playMoveBeilv*this0.player.duration;
-                this0.player.play();
-                this0.p5_play.style.background = 'url("./img/p2.png") no-repeat center';
-                this0.p5_play.style.backgroundSize = 'contain';
-                clearInterval(this0.player_timer);
-                this0.player_timer = setInterval(function () {
-                    this0.playerTTT();
-                },1000);
-                doc.onmouseup = null;
-            };
-        };
         //
         this.arrCheck = getClass(doc,'check');
         this.p3_close_x = getClass(this.adiv3d[3],'close');
