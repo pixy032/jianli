@@ -68,7 +68,7 @@ border-radius: 50%;}
 #p3_1 .p3_1_1 input{text-align: center; width: 10%; height: inherit;}
 #p3_1 #tsukuru { width: 50%; height:10%; margin: 5% 25%; background: white; border: 1px solid deepskyblue;}
 #p3_1 #tsukuru:hover { background: deepskyblue; border: none; cursor: pointer; color: white;}
-.close { text-align:center ;position:absolute; top: 0; right:0; width: 5%; color: red;}
+.close { text-align:center ;position:absolute; top: 0; right:0; width: 5%; color: red; z-index: 10;}
 .close:hover { background: red; color: black;}
 #p3_1 #title_text input { width: 80%; height: 5%;}
 #p3_1 #title_text { margin-left: 5%;}
@@ -84,9 +84,10 @@ border-radius: 50%;}
 .p5class { width: 10%; height: 10%; position: absolute; top: 45%; left: 45%;}
 .p5class:hover {cursor: pointer;}
 
-#p3_3 { width: 120%; height: 80%; position: absolute; left: -10%; top: -200%; background:url("./img/ogaku.png") no-repeat 90% 80% black;overflow: hidden;}
+#p3_3 { width: 120%; height: 80%; position: absolute; left: -10%; top: -200%; background:black; overflow: hidden; color: white;}
+#p3_3:after {display:inline-block; content: '本站收录的各类视频与资料，全部是从网上搜集分享而来，没有用作任何营利性的应用，其版权均归原作者及其网站所有,如果您对本站所载视频作品版权的归属存有异议，请立即通知我，我将在第一时间予以删除，同时向你表示歉意!'; width: 80%; position: absolute;top: 40%; left: 10%;}
 #p3_3 .loadPlay { position: absolute; z-index:5; display: none; background: url("./img/load.gif") no-repeat center rgba(0,0,0,0.5); width: 80%; height: 100%; left: 10%; top: 0;}  /*直接用img会出错*/
-#p3_3 video { position: absolute; left: 0; top: 0;}
+#p3_3 video { position: absolute; left: 0; top: 0; z-index: 1;}
 #con { width: 100%; height: 15%; position: absolute; left: 0;bottom: 0; background-color: #303235; z-index: 6;}
 #play_move {width: 100%; height: 4px; position: absolute; background-color: #666666;}
 #play_move:hover {cursor: pointer;}
@@ -110,7 +111,7 @@ border-radius: 50%;}
 #full_half {cursor: pointer;}
 #replay {cursor: pointer;}
 
-.playList { width:40%; height:40%; top:5%; left:5%; position: absolute; background-color: white; border: 4px solid #666666; overflow: scroll;}
+.playList { width:40%; height:40%; top:5%; left:5%; position: absolute; color:black; background-color: white; border: 4px solid #666666; overflow: scroll; z-index: 2}
 .pLi {height:10%; margin: 5%; border-bottom: 1px solid #666666;}
 .pLi:hover {cursor: pointer;}
 
