@@ -668,22 +668,6 @@ moto.prototype = {
         this.player.oncanplay = function () {
             this0.playTimeDura();
             this0.playerTTT();
-            if(this0.p5_playMoveBeilv)
-            {
-                this0.p5_playMove.style.width = this0.p5_playMoveBeilv*this0.p5_playMoveFat.offsetWidth + 'px';
-            }
-            else
-            {
-                this0.p5_playMove.style.width = 0;
-            }
-            if(this0.p5_playMoveBeilv1)
-            {
-                this0.p5_playMove1.style.width = this0.p5_playMoveBeilv1*this0.p5_playMoveFat.offsetWidth + 'px';
-            }
-            else
-            {
-                this0.p5_playMove1.style.width = 0;
-            }
             this0.play_Load.style.display = 'none';
             this0.p5_playMoveFat.onmousedown = function () {
                 doc.onmouseup = function (ev) {
@@ -712,6 +696,22 @@ moto.prototype = {
                 };
             };
         };
+        if(this0.p5_playMoveBeilv)
+        {
+            this0.p5_playMove.style.width = this0.p5_playMoveBeilv*this0.p5_playMoveFat.offsetWidth + 'px';
+        }
+        else
+        {
+            this0.p5_playMove.style.width = 0;
+        }
+        if(this0.p5_playMoveBeilv1)
+        {
+            this0.p5_playMove1.style.width = this0.p5_playMoveBeilv1*this0.p5_playMoveFat.offsetWidth + 'px';
+        }
+        else
+        {
+            this0.p5_playMove1.style.width = 0;
+        }
         this.player.onended = function () {
             this0.p5_play.style.background = 'url("./img/p1.png") no-repeat center';
             this0.p5_play.style.backgroundSize = 'contain';
