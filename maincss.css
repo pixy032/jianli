@@ -85,8 +85,8 @@ border-radius: 50%;}
 .p5class:hover {cursor: pointer;}
 
 #p3_3 { width: 120%; height: 80%; position: absolute; left: -10%; top: -200%; background:black; overflow: hidden; color: white;}
-#p3_3:after {display:inline-block; content: '本站收录的各类视频音频与资料，全部是从网上搜集分享而来，没有用作任何营利性的应用，其版权均归原作者及其网站所有,如果您对本站所载视频作品版权的归属存有异议，请立即通知我，我将在第一时间予以删除，同时向你表示歉意!'; width: 80%; position: absolute;top: 40%; left: 10%;}
-#p3_3 .loadPlay { position: absolute; z-index:5; display: none; background: url("./img/load.gif") no-repeat center rgba(0,0,0,0.5); width: 80%; height: 100%; left: 10%; top: 0;}  /*直接用img会出错*/
+#p3_3:after {display:inline-block; content: '本站收录的各类视频与资料，全部是从网上搜集分享而来，没有用作任何营利性的应用，其版权均归原作者及其网站所有,如果您对本站所载视频作品版权的归属存有异议，请立即通知我，我将在第一时间予以删除，同时向你表示歉意!'; width: 80%; position: absolute;top: 40%; left: 10%;}
+#p3_3 .loadPlay { position: absolute; z-index:5; display: none; background: url("./img/load.gif") no-repeat center; width: 10%; height: 10%; left: 45%; top: 45%; background-size: contain;}  /*直接用img会出错*/
 #p3_3 video { position: absolute; left: 0; top: 0; z-index: 1;}
 #con { width: 100%; height: 15%; position: absolute; left: 0;bottom: 0; background-color: #303235; z-index: 6;}
 #play_move {width: 100%; height: 4px; position: absolute; background-color: #666666;}
