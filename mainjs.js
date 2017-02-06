@@ -985,7 +985,7 @@ moto.prototype = {
             "l" : 0,
             "t" : 0,
             "color" : 'black',
-            "about" : '作者：张昀琦；邮箱:proimg@sina.com'
+            "about" : '作者：张昀琦；邮箱：proimg@sina.com'
         });
         this.p5img.ondblclick = function () {
             this0.p5creat.window();
