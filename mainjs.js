@@ -123,6 +123,17 @@ moto.prototype = {
                 this0.ErrorNum++;
                 this0.ErrorMes = ''+this0.ErrorNum+'项加载失败';
                 this0.loadSpan.innerHTML = 'Loading... '+parseInt(this0.loadNum100)+'%   '+this0.ErrorMes+'';
+                if (this0.loadNum == this0.arrImg.length)
+                {
+                    this0.loadSpan.style.left = '38%';
+                    this0.loadSpan.innerHTML = ''+this0.ErrorNum+'项加载失败,点击页面强行加载,或刷新页面重新载入...';
+                    this0.loadAll.onclick = function () {
+                        this0.init();
+                        this0.loadTime = setInterval(function () {
+                            this0.loadSetInterval();
+                        },30)
+                    }
+                }
             }
         }
     },
