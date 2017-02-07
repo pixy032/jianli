@@ -94,20 +94,35 @@ moto.prototype = {
             this.imgTemp[i].onload = function () {
                 this0.loadNum++;
                 this0.loadNum100 = 100/this0.imgTemp.length*this0.loadNum;
-                this0.loadSpan.innerHTML = 'Loading... '+parseInt(this0.loadNum100)+'%'+this0.ErrorMes+'';
+                this0.loadSpan.innerHTML = 'Loading... '+parseInt(this0.loadNum100)+'%   '+this0.ErrorMes+'';
                 this0.loadDiv.style.width = clientW * this0.loadNum100*0.01 + 'px';
                 if (this0.loadNum == this0.arrImg.length)
                 {
-                    this0.init();
-                    this0.loadTime = setInterval(function () {
-                        this0.loadSetInterval();
-                    },30)
+                    if (this0.ErrorNum)
+                    {
+                        this0.loadSpan.style.left = '38%';
+                        this0.loadSpan.innerHTML = ''+this0.ErrorNum+'项加载失败,点击页面强行加载,或刷新页面重新载入...';
+                        this0.loadAll.onclick = function () {
+                            this0.init();
+                            this0.loadTime = setInterval(function () {
+                                this0.loadSetInterval();
+                            },30)
+                        }
+                    }
+                    else
+                    {
+                        this0.init();
+                        this0.loadTime = setInterval(function () {
+                            this0.loadSetInterval();
+                        },30)
+                    }
                 }
             };
             this.imgTemp[i].onerror = function () {
                 this0.loadNum++;
                 this0.ErrorNum++;
                 this0.ErrorMes = ''+this0.ErrorNum+'项加载失败';
+                this0.loadSpan.innerHTML = 'Loading... '+parseInt(this0.loadNum100)+'%   '+this0.ErrorMes+'';
             }
         }
     },
