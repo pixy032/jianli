@@ -72,6 +72,8 @@ moto.prototype = {
         this.loadSpan = this.loadAll.children[0];
         this.loadDiv = this.loadAll.children[1];
         this.loadNum = 0;
+        this.ErrorNum = 0;
+        this.ErrorMes= '';
         this.loadNum100 = 0;
         this.imgLoad();
         for (var i=0; i<pic.length; i++)
@@ -92,7 +94,7 @@ moto.prototype = {
             this.imgTemp[i].onload = function () {
                 this0.loadNum++;
                 this0.loadNum100 = 100/this0.imgTemp.length*this0.loadNum;
-                this0.loadSpan.innerHTML = 'Loading... '+parseInt(this0.loadNum100)+'%';
+                this0.loadSpan.innerHTML = 'Loading... '+parseInt(this0.loadNum100)+'%'+this0.ErrorMes+'';
                 this0.loadDiv.style.width = clientW * this0.loadNum100*0.01 + 'px';
                 if (this0.loadNum == this0.arrImg.length)
                 {
@@ -101,6 +103,11 @@ moto.prototype = {
                         this0.loadSetInterval();
                     },30)
                 }
+            };
+            this.imgTemp[i].onerror = function () {
+                this0.loadNum++;
+                this0.ErrorNum++;
+                this0.ErrorMes = ''+this0.ErrorNum+'项加载失败';
             }
         }
     },
