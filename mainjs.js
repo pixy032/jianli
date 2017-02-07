@@ -84,7 +84,7 @@ moto.prototype = {
     "imgLoad": function () {
         var this0 = this;
         this.imgTemp = [];
-        this.arrImg = pic.concat(backback);
+        this.arrImg = pic.concat(backback,kpArr);
         for (var i=0; i<this.arrImg.length; i++)
         {
             this.imgTemp[i] = new Image();
