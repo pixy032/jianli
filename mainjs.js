@@ -100,17 +100,11 @@ moto.prototype = {
                 {
                     if (this0.ErrorNum)
                     {
-                        this0.loadSpan.style.left = '38%';
-                        this0.loadSpan.innerHTML = ''+this0.ErrorNum+'项加载失败,点击页面强行加载,或刷新页面重新载入...';
-                        this0.loadAll.onclick = function () {
-                            this0.init();
-                            this0.loadTime = setInterval(function () {
-                                this0.loadSetInterval();
-                            },30)
-                        }
+                        this0.loadTemp();
                     }
                     else
                     {
+                        clearTimeout(this0.loadErrorTime);
                         this0.init();
                         this0.loadTime = setInterval(function () {
                             this0.loadSetInterval();
@@ -125,22 +119,50 @@ moto.prototype = {
                 this0.loadSpan.innerHTML = 'Loading... '+parseInt(this0.loadNum100)+'%   '+this0.ErrorMes+'';
                 if (this0.loadNum == this0.arrImg.length)
                 {
-                    this0.loadSpan.style.left = '38%';
-                    this0.loadSpan.innerHTML = ''+this0.ErrorNum+'项加载失败,点击页面强行加载,或刷新页面重新载入...';
-                    this0.loadAll.onclick = function () {
-                        this0.init();
-                        this0.loadTime = setInterval(function () {
-                            this0.loadSetInterval();
-                        },30)
-                    }
+                    this0.loadTemp();
                 }
             }
+        }
+        this.loadErrorTime = setTimeout(function () {
+            this0.loadError();
+        },2000)
+    },
+    "loadTemp" : function () {
+        var this0 = this;
+        clearTimeout(this.loadErrorTime);
+        this.loadSpan.style.left = '38%';
+        this.loadSpan.innerHTML = ''+this.ErrorNum+'项加载失败,点击页面强行加载,或刷新页面重新载入...';
+        this.loadAll.onclick = function () {
+            this0.init();
+            this0.loadTime = setInterval(function () {
+                this0.loadSetInterval();
+            },30)
+        }
+    },
+    "loadError" : function () {
+        var this0 = this;
+        for (var i=0; i<this.arrImg.length; i++)
+        {
+            this.imgTemp[i].onload = null;
+            this.imgTemp[i].onerror = null;
+        }
+        this.loadErrorDiv = doc.createElement('div');
+        this.loadErrorDiv.className = 'error';
+        this.loadErrorDiv.innerHTML = '与git网络连接过慢，如不想等待请点击此处强行加载';
+        this.loadAll.appendChild(this.loadErrorDiv);
+        this.loadAll.onclick = function () {
+            this0.init();
+            this0.loadTime = setInterval(function () {
+                this0.loadSetInterval();
+            },30)
         }
     },
     "loadSetInterval": function () {
         if (this.loadOpacity <= 0.01)//浮点误差有；
         {
+            clearTimeout(this.loadErrorTime);
             clearInterval(this.loadTime);
+            this.loadAll.removeChild(this.loadErrorDiv);
             this.loadAll.style.display = 'none';
         }
         this.loadOpacity -= 0.1;

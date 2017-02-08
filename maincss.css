@@ -24,6 +24,8 @@ body { overflow: hidden;}
 #load { width:100%; height:100%; background:deepskyblue; color: white; z-index: 9999; display: block; position: absolute; left: 0; top: 0; opacity: 1;}
 #load span { position: absolute; left: 46%; top: 40%;}
 #load div { height:2px; position: absolute; left: 0; top: 50%; background-color: white;}
+#load .error { height: 3%;padding:1% 5%; position: absolute; top: 15%; left: 34%; border: 1px solid white; color: white; background: transparent;}
+#load .error:hover { background: white; color: deepskyblue; cursor: pointer;}
 
 .main { position: absolute;}
 .button { position: absolute;}
