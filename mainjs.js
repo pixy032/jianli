@@ -125,7 +125,7 @@ moto.prototype = {
         }
         this.loadErrorTime = setTimeout(function () {
             this0.loadError();
-        },90000)
+        },60000)
     },
     "loadTemp" : function () {
         var this0 = this;
@@ -150,7 +150,7 @@ moto.prototype = {
         this.loadErrorDiv.className = 'error';
         this.loadErrorDiv.innerHTML = '与git网络连接过慢，如不想等待请点击此处强行加载';
         this.loadAll.appendChild(this.loadErrorDiv);
-        this.loadAll.onclick = function () {
+        this.loadErrorDiv.onclick = function () {
             this0.init();
             this0.loadTime = setInterval(function () {
                 this0.loadSetInterval();
