@@ -125,7 +125,7 @@ moto.prototype = {
         }
         this.loadErrorTime = setTimeout(function () {
             this0.loadError();
-        },60000)
+        },40000)
     },
     "loadTemp" : function () {
         var this0 = this;
