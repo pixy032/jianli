@@ -1367,21 +1367,27 @@ moto.prototype = {
         else
         {
             this.playTime = this.player.currentTime;
-            if (this.playTime/360 >= 1)
+            if (this.playTime/3600 >= 1)
             {
-                this.playTimeH = parseInt(this.playTime/360)+':';
+                this.playTimeH = parseInt(this.playTime/3600)+':';
             }
             else {
                 this.playTimeH = '';
             }
-            this.playTimeM = parseInt(this.playTime%360/60);
-            if (this.playTime%360%60 < 10)
+            if (this.playTime%3600/60 < 10)
             {
-                this.playTimeS = '0'+ parseInt(this.playTime%360%60);
+                this.playTimeM = '0'+parseInt(this.playTime%3600/60);
+            }
+            else {
+                this.playTimeM = parseInt(this.playTime%3600/60);
+            }
+            if (this.playTime%3600%60 < 10)
+            {
+                this.playTimeS = '0'+ parseInt(this.playTime%3600%60);
             }
             else
             {
-                this.playTimeS = parseInt(this.playTime%360%60);
+                this.playTimeS = parseInt(this.playTime%3600%60);
             }
             this.playTimeC.children[0].innerHTML = this.playTimeH + this.playTimeM + ':' + this.playTimeS;
             this.p5_playMoveBeilv = this.playTime/this.playTimeAll;
@@ -1459,20 +1465,26 @@ moto.prototype = {
     },
     "playTimeDura" : function () {
         this.playTimeAll = this.player.duration;
-        if (this.playTimeAll/360 >= 1)
+        if (this.playTimeAll/3600 >= 1)
         {
-            this.playTimeAllH = parseInt(this.playTimeAll/360)+':';
+            this.playTimeAllH = parseInt(this.playTimeAll/3600)+':';
         }
         else {
             this.playTimeAllH = '';
         }
-        this.playTimeAllM = parseInt(this.player.duration%360/60);
-        if (this.player.duration%360%60 < 10)
+        if (this.player.duration%3600/60 < 10)
         {
-            this.playTimeAllS = '0'+parseInt(this.player.duration%360%60);
+            this.playTimeAllM = '0'+parseInt(this.player.duration%3600/60);
         }
         else {
-            this.playTimeAllS = parseInt(this.player.duration%360%60);
+            this.playTimeAllM = parseInt(this.player.duration%3600/60);
+        }
+        if (this.player.duration%3600%60 < 10)
+        {
+            this.playTimeAllS = '0'+parseInt(this.player.duration%3600%60);
+        }
+        else {
+            this.playTimeAllS = parseInt(this.player.duration%3600%60);
         }
         this.playTimeC.children[1].innerHTML = '/'+ this.playTimeAllH + this.playTimeAllM + ':' + this.playTimeAllS;
     },
