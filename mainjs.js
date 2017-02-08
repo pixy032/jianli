@@ -86,7 +86,7 @@ moto.prototype = {
     "imgLoad": function () {
         var this0 = this;
         this.imgTemp = [];
-        this.arrImg = pic.concat(backback,kpArr);
+        this.arrImg = backback.concat(kpArr,pic);
         for (var i=0; i<this.arrImg.length; i++)
         {
             this.imgTemp[i] = new Image();
@@ -162,7 +162,10 @@ moto.prototype = {
         {
             clearTimeout(this.loadErrorTime);
             clearInterval(this.loadTime);
-            this.loadAll.removeChild(this.loadErrorDiv);
+            if (this.loadErrorDiv)
+            {
+                this.loadAll.removeChild(this.loadErrorDiv);
+            }
             this.loadAll.style.display = 'none';
         }
         this.loadOpacity -= 0.1;
