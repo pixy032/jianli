@@ -650,6 +650,8 @@ moto.prototype = {
         this.playOpen.onclick = function () {
             if (this0.playOnOff)
             {
+                this0.playOpen.style.background = 'url("./img/f2.png") no-repeat center';
+                this0.playOpen.style.backgroundSize = 'contain';
                 this0.playList = doc.createElement('div');
                 this0.playList.className = 'playList';
                 this0.playListUl = doc.createElement('ul');
@@ -678,6 +680,8 @@ moto.prototype = {
             }
             else
             {
+                this0.playOpen.style.background = 'url("./img/f1.png") no-repeat center';
+                this0.playOpen.style.backgroundSize = 'contain';
                 this0.fat_play.removeChild(this0.playList)
             }
             this0.playOnOff = !this0.playOnOff;
