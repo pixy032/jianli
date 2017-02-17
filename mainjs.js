@@ -1,4 +1,5 @@
 doc.addEventListener("DOMContentLoaded",function () {
+    clientWH();
     var oDiv3d = doc.getElementById('mawari');
     var x = new moto(getClass(oDiv3d,'main'),getClass(doc,'button'));
     x.init();
@@ -12,7 +13,6 @@ doc.addEventListener("DOMContentLoaded",function () {
 function moto(obj,but) {
     this.adiv3d = obj;
     this.abut = but;
-    clientWH();
     this.initKai();
 }
 moto.prototype = {
