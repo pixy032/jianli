@@ -5,12 +5,14 @@ doc.addEventListener("DOMContentLoaded",function () {
     win.onresize = function () {
         clientH = doc.documentElement.clientHeight || doc.body.offsetHeight;//重新获取可视区高度
         clientW = doc.documentElement.clientWidth || doc.body.clientWidth;
+        clientWH();
         x.init();
     };
 },false);
 function moto(obj,but) {
     this.adiv3d = obj;
     this.abut = but;
+    clientWH();
     this.initKai();
 }
 moto.prototype = {

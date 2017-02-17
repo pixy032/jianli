@@ -3,6 +3,13 @@ var doc = document;//优化Dom
 var win = window;
 var clientW = doc.documentElement.clientWidth || doc.body.offsetWidth; //可视区兼容
 var clientH = doc.documentElement.clientHeight || doc.body.offsetHeight;
+//2017.2.17兼容手持设备的浏览。
+function clientWH() {
+    if (clientH > clientW*0.8)
+    {
+        clientH = clientW*0.8;
+    }
+}
 //class
 function getClass(obj,classname)
 {
@@ -23,7 +30,7 @@ function getId(obj,id)
     return obj.getElementById(id);
 }
 //
-function delClassName(obj,del) //classname是string
+function delClassName(obj,del)
 {
     var name = obj.className.split(' ');
     for( var i=0; i<name.length; i++ )
@@ -36,7 +43,7 @@ function delClassName(obj,del) //classname是string
     obj.className = name.join(' ');
 }
 //
-function addtimeClassName(obj,del) //classname是string
+function addtimeClassName(obj,del)
 {
     var name = obj.className.split(' ');
     for( var i=0; i<name.length; i++ )
