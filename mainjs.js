@@ -876,12 +876,12 @@ moto.prototype = {
         this.p3elements[3].onclick = function () {
             this0.modoru();
         };
-        this.p3elements[0].ondblclick = function () {//注意display = none 是加不上定位的
+        this.p3elements[0].onclick = function () {//注意display = none 是加不上定位的
             this0.allnum++;
             this0.p3_1.style.display = 'block';
             this0.p3_1.style.zIndex = this0.allnum;
         };
-        this.p3elements[1].ondblclick = function () {
+        this.p3elements[1].onclick= function () {
             this0.allnum++;
             this0.fat_play.style.top = '10%';
             this0.con.style.bottom = '0';
@@ -893,7 +893,7 @@ moto.prototype = {
         {
             this.p3_3dimg(30,this.tarnsZ);
         }
-        this.p3elements[2].ondblclick = function () {
+        this.p3elements[2].onclick = function () {
             clearInterval(this0.p3_3dimg_timer);
             clearInterval(this0.up_timer);
             this0.allnum++;
@@ -1049,9 +1049,9 @@ moto.prototype = {
             "l" : 0,
             "t" : 0,
             "color" : 'black',
-            "about" : '作者：张昀琦；邮箱：proimg@sina.com'
+            "about" : '作者：張うんき；邮箱：proimg@sina.com'
         });
-        this.p5img.ondblclick = function () {
+        this.p5img.onclick = function () {
             this0.p5creat.window();
         };
         this.p5creat.creatWindow.onclick = function (ev) {
@@ -1903,7 +1903,7 @@ game.prototype.back = function () {
     this.numBack++;
     if(this.numBack>7)
     {
-        clearInterval(this.timer1); //定时器和清除定时器为非阻塞模式
+        clearInterval(this.timer1);
     }
     this.numBack%2?this.fat.style.backgroundColor = '#CCC':this.fat.style.backgroundColor = 'black';
 };
