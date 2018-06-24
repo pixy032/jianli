@@ -1049,7 +1049,7 @@ moto.prototype = {
             "l" : 0,
             "t" : 0,
             "color" : 'black',
-            "about" : '作者：張うんき；邮箱：proimg@sina.com'
+            "about" : '作者：張昀琦；邮箱：proimg@sina.com'
         });
         this.p5img.onclick = function () {
             this0.p5creat.window();
