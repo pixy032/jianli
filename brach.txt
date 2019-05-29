@@ -1,8 +1,10 @@
 ƒoƒJƒoƒJƒoƒ
-mamammamamamamamamamamma
-<<<<<<< Updated upstream
-qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqJ
-=======
+mamammamamamamamamamamma:
+qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
 kkjkjkjkjkj
-klljslfjsd:J
->>>>>>> Stashed changes
+klljslfjsd: Stashed changes
+kkjkjkjkjkj
+klljslfjsd:
+ppppppppppppppppppppppppJ
+
+kko
