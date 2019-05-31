@@ -1,4 +1,4 @@
-//全局变量
+//全局变量1111111111111111111111111111
 var doc = document;//优化Dom
 var win = window;
 var clientW = doc.documentElement.clientWidth || doc.body.offsetWidth; //可视区兼容
