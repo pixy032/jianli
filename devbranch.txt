@@ -1,13 +1,20 @@
-<<<<<<< HEAD
-first branchfirst branchfirst branchfirst branch
+git init							git文件夹初始化.git生成
+git add							添加文件
+git commit						提交添加文件
+git status							git文件夹文件状态
+git diff 文件名		git diff HEAD -- readme.txt		查看文件修改内容
+git log			--pretty=oneline			查看日志
+git reset --hard HEAD^	git reset --hard 版本号		会滚文件
+			git reset HEAD <file>		取消暂存区修改，回退最新版
+git reflog							查看操作命令
+git checkout -- file						取消工作区修改
+git rm							删除文件
+ssh-keygen -t rsa -C "youremail@example.com"			创建sshkey，用户目录.ssh文件夹生成id_rsa私钥id_rsa.pub公钥
+git clone 地址						克隆远程仓库
 
+git fetch							更新本地仓库，但不合并（不可见需要git merge 本地 远程）
+git merge							合并本地目录
+git merge 本地 远程						合并远程仓库
+git pull							远程仓库先更新后合并
 
-origin push
-
-second origin push
-=======
-first branch
-99999999999999999
->>>>>>> origin/dev
-
-doc
+git tab 标签						创建标签
